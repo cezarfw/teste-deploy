@@ -24,7 +24,7 @@ metadata:
   uid: e50f3626-263c-11e9-89e2-08002775e2b0
 spec:
   containers:
-  - image: ${CICD_IMAGE}
+  - image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
     imagePullPolicy: Always
     name: nginx
     resources: {}
@@ -85,7 +85,7 @@ status:
     type: PodScheduled
   containerStatuses:
   - containerID: docker://bf3e1be058a55774aace5758ad388b751bff654731048274fa6762699784e071
-    image: ${CICD_IMAGE}
+    image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
     imageID: docker-pullable://nginx@sha256:56bcd35e8433343dbae0484ed5b740843dd8bff9479400990f251c13bbb94763
     lastState: {}
     name: nginx
