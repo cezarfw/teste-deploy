@@ -22,16 +22,8 @@ spec:
   selector:
     matchLabels:
       workload.user.cattle.io/workloadselector: deployment-default-nginx
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 0
-    type: RollingUpdate
   template:
     metadata:
-      annotations:
-        cattle.io/timestamp: 2019-02-01T18:10:32Z
-      creationTimestamp: null
       labels:
         workload.user.cattle.io/workloadselector: deployment-default-nginx
         app: nginx
@@ -39,14 +31,9 @@ spec:
       imagePullSecrets:
       - name: registry-interno
       containers:
-      - image: teste-deploy/teste-deploy:latest
+      - image: novonginx
         imagePullPolicy: Always
         name: nginx
         resources: {}
         tty: true
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
 

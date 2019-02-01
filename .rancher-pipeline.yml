@@ -4,7 +4,7 @@
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: teste-deploy/teste-deploy
+      tag: teste-deploy:5
       pushRemote: true
       registry: 10.90.2.77:5000
     env:
