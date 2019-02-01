@@ -1,4 +1,4 @@
-﻿stages:
+stages:
 - name: Gerar imagem
   steps:
   - publishImageConfig:
@@ -6,6 +6,7 @@
       buildContext: .
       tag: teste-deploy:5
       registry: 10.90.2.77:5000
+      pushRemote: true
     env:
       PLUGIN_DEBUG: "true"
       PLUGIN_INSECURE: "true"
