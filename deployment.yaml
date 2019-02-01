@@ -37,9 +37,9 @@ spec:
         app: nginx
     spec:
       imagePullSecrets:
-      - name: pipeline-docker-registry
+      - name: registry-interno
       containers:
-      - image: teste-deploy/teste-deploy
+      - image: teste-deploy/teste-deploy:latest
         imagePullPolicy: Always
         name: nginx
         resources: {}
