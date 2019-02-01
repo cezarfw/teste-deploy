@@ -1,0 +1,17 @@
+﻿stages:
+- name: Gerar imagem
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: novonginx
+      pushRemote: true
+      registry: 10.90.2.77:5000
+    env:
+      PLUGIN_DEBUG: "true"
+      PLUGIN_INSECURE: "true"
+- name: deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+timeout: 60
