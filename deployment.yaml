@@ -24,7 +24,7 @@ metadata:
   uid: e50f3626-263c-11e9-89e2-08002775e2b0
 spec:
   containers:
-  - image: nginx
+  - image: ${CICD_IMAGE}
     imagePullPolicy: Always
     name: nginx
     resources: {}
