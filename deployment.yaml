@@ -39,7 +39,7 @@ spec:
       imagePullSecrets:
       - name: pipeline-docker-registry
       containers:
-      - image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+      - image: teste-deploy/teste-deploy
         imagePullPolicy: Always
         name: nginx
         resources: {}
