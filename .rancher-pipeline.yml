@@ -6,6 +6,9 @@ stages:
       buildContext: .
       tag: teste-deploy:${CICD_EXECUTION_SEQUENCE}
       registry: http://10.90.2.77:5000
+    env:
+      PLUGIN_DEBUG: "true"
+      PLUGIN_INSECURE: "true"
 - name: deploy
   steps:
   - applyYamlConfig:
