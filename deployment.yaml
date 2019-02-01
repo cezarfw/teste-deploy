@@ -1,69 +1,63 @@
-﻿apiVersion: v1
-kind: Pod
+﻿apiVersion: apps/v1beta2
+kind: Deployment
 metadata:
   annotations:
-    cattle.io/timestamp: 2019-02-01T18:10:32Z
-    cni.projectcalico.org/podIP: 10.42.2.73/32
-  creationTimestamp: null
-  generateName: nginx-588b9bd4bb-
+    deployment.kubernetes.io/revision: "2"
+    field.cattle.io/creatorId: user-btdmw
+    field.cattle.io/publicEndpoints: '[{"addresses":["10.90.2.76"],"port":80,"protocol":"HTTP","serviceName":"default:ingress-c7e3ba6e2b7449d8cd3ecb9a9c058df0","ingressName":"default:site-teste","hostname":"site-teste.default.10.90.2.76.xip.io","allNodes":true}]'
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1beta2","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"1","field.cattle.io/creatorId":"user-btdmw","field.cattle.io/publicEndpoints":"[{\"addresses\":[\"10.90.2.76\"],\"port\":80,\"protocol\":\"HTTP\",\"serviceName\":\"default:ingress-c7e3ba6e2b7449d8cd3ecb9a9c058df0\",\"ingressName\":\"default:site-teste\",\"hostname\":\"site-teste.default.10.90.2.76.xip.io\",\"allNodes\":true}]"},"creationTimestamp":"2019-02-01T18:10:32Z","generation":2,"labels":{"cattle.io/creator":"norman","workload.user.cattle.io/workloadselector":"deployment-default-nginx"},"name":"nginx","namespace":"default","resourceVersion":"3578903","selfLink":"/apis/apps/v1beta2/namespaces/default/deployments/nginx","uid":"aa297db2-264c-11e9-89e2-08002775e2b0"},"spec":{"progressDeadlineSeconds":600,"replicas":1,"revisionHistoryLimit":10,"selector":{"matchLabels":{"workload.user.cattle.io/workloadselector":"deployment-default-nginx"}},"strategy":{"rollingUpdate":{"maxSurge":1,"maxUnavailable":0},"type":"RollingUpdate"},"template":{"metadata":{"annotations":{"cattle.io/timestamp":"2019-02-01T18:10:32Z"},"creationTimestamp":null,"labels":{"app":"nginx","workload.user.cattle.io/workloadselector":"deployment-default-nginx"}},"spec":{"containers":[{"image":"127.0.0.1:34605/teste-deploy:6","imagePullPolicy":"Always","name":"nginx","resources":{},"tty":true}],"dnsPolicy":"ClusterFirst","imagePullSecrets":[{"name":"pipeline-docker-registry"}],"restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"terminationGracePeriodSeconds":30}}}}
+#  creationTimestamp: 2019-02-01T18:10:32Z
+  generation: 3
   labels:
-    app: nginx
-    pod-template-hash: "1446568066"
+    cattle.io/creator: norman
     workload.user.cattle.io/workloadselector: deployment-default-nginx
-    workloadID_ingress-c7e3ba6e2b7449d8cd3ecb9a9c058df0: "true"
-  ownerReferences:
-  - apiVersion: apps/v1
-    blockOwnerDeletion: true
-    controller: true
-    kind: ReplicaSet
-    name: nginx-588b9bd4bb
-    uid: 0bee7eb8-2652-11e9-89e2-08002775e2b0
-  selfLink: /api/v1/namespaces/default/pods/nginx-588b9bd4bb-jctqq
+  name: nginx
+  namespace: default
+  resourceVersion: "3582975"
+  selfLink: /apis/apps/v1beta2/namespaces/default/deployments/nginx
+  uid: aa297db2-264c-11e9-89e2-08002775e2b0
 spec:
-  containers:
-  - image: 10.90.2.77:5000/novonginx
-    imagePullPolicy: Always
-    name: nginx
-    resources: {}
-    securityContext:
-      allowPrivilegeEscalation: false
-      capabilities: {}
-      privileged: false
-      readOnlyRootFilesystem: false
-      runAsNonRoot: false
-    stdin: true
-    terminationMessagePath: /dev/termination-log
-    terminationMessagePolicy: File
-    tty: true
-    volumeMounts:
-    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-      name: default-token-9b65k
-      readOnly: true
-  dnsPolicy: ClusterFirst
-  imagePullSecrets:
-  - name: registry-interno
-  nodeName: worker03
-  priority: 0
-  restartPolicy: Always
-  schedulerName: default-scheduler
-  securityContext: {}
-  serviceAccount: default
-  serviceAccountName: default
-  terminationGracePeriodSeconds: 30
-  tolerations:
-  - effect: NoExecute
-    key: node.kubernetes.io/not-ready
-    operator: Exists
-    tolerationSeconds: 300
-  - effect: NoExecute
-    key: node.kubernetes.io/unreachable
-    operator: Exists
-    tolerationSeconds: 300
-  volumes:
-  - name: default-token-9b65k
-    secret:
-      defaultMode: 420
-      secretName: default-token-9b65k
-status:
-  phase: Pending
-  qosClass: BestEffort
+  progressDeadlineSeconds: 600
+  replicas: 1
+#  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: deployment-default-nginx
+#  strategy:
+#    rollingUpdate:
+#      maxSurge: 1
+#      maxUnavailable: 0
+#    type: RollingUpdate
+  template:
+    metadata:
+#      annotations:
+#        cattle.io/timestamp: 2019-02-01T18:10:32Z
+#      creationTimestamp: null
+      labels:
+        app: nginx
+        workload.user.cattle.io/workloadselector: deployment-default-nginx
+    spec:
+      containers:
+      - image: 10.90.2.77:5000/novonginx
+        imagePullPolicy: Always
+        name: nginx
+        resources: {}
+#        securityContext:
+#          allowPrivilegeEscalation: false
+#          capabilities: {}
+#          privileged: false
+#          readOnlyRootFilesystem: false
+#          runAsNonRoot: false
+#        stdin: true
+#        terminationMessagePath: /dev/termination-log
+#        terminationMessagePolicy: File
+        tty: true
+#      dnsPolicy: ClusterFirst
+#      imagePullSecrets:
+#      - name: pipeline-docker-registry
+#      restartPolicy: Always
+#      schedulerName: default-scheduler
+#      securityContext: {}
+#      terminationGracePeriodSeconds: 30
+
