@@ -49,10 +49,4 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
-    spec:
-      imagePullSecrets:
-      - name: pipeline-docker-registry
-      containers:
-      - name: helloserver
-        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
 
