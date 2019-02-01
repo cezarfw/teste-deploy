@@ -1,0 +1,14 @@
+stages:
+- name: Gerar imagem
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: teste-deploy
+      pushRemote: true
+      registry: 10.90.2.77
+- name: deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+timeout: 60
