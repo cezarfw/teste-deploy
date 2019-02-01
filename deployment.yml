@@ -1,0 +1,102 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    cattle.io/timestamp: 2019-02-01T16:17:39Z
+    cni.projectcalico.org/podIP: 10.42.0.149/32
+  creationTimestamp: 2019-02-01T16:17:39Z
+  generateName: nginx-69db8db4f7-
+  labels:
+    pod-template-hash: "2586486093"
+    workload.user.cattle.io/workloadselector: deployment-default-nginx
+    workloadID_ingress-c7e3ba6e2b7449d8cd3ecb9a9c058df0: "true"
+  name: nginx-69db8db4f7-x6j29
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: nginx-69db8db4f7
+    uid: e4f8ba34-263c-11e9-89e2-08002775e2b0
+  resourceVersion: "3566996"
+  selfLink: /api/v1/namespaces/default/pods/nginx-69db8db4f7-x6j29
+  uid: e50f3626-263c-11e9-89e2-08002775e2b0
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: nginx
+    resources: {}
+    securityContext:
+      allowPrivilegeEscalation: false
+      capabilities: {}
+      privileged: false
+      readOnlyRootFilesystem: false
+      runAsNonRoot: false
+    stdin: true
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    tty: true
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-9b65k
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  nodeName: worker01
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-9b65k
+    secret:
+      defaultMode: 420
+      secretName: default-token-9b65k
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: 2019-02-01T16:17:39Z
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: 2019-02-01T16:17:53Z
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: null
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: 2019-02-01T16:17:39Z
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://bf3e1be058a55774aace5758ad388b751bff654731048274fa6762699784e071
+    image: ${CICD_IMAGE}
+    imageID: docker-pullable://nginx@sha256:56bcd35e8433343dbae0484ed5b740843dd8bff9479400990f251c13bbb94763
+    lastState: {}
+    name: nginx
+    ready: true
+    restartCount: 0
+    state:
+      running:
+        startedAt: 2019-02-01T16:17:52Z
+  hostIP: 10.90.2.76
+  phase: Running
+  podIP: 10.42.0.149
+  qosClass: BestEffort
+  startTime: 2019-02-01T16:17:39Z
+
