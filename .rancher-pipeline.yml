@@ -4,7 +4,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: novonginx
+      tag: novonginx:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: 10.90.2.77:5000
     env:
