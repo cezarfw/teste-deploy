@@ -16,6 +16,8 @@ spec:
         app: site
         workload.user.cattle.io/workloadselector: deployment-site-site
     spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
       containers:
         - name: site
           image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
