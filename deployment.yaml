@@ -18,6 +18,7 @@ spec:
     spec:
       containers:
         - name: site
-          image: deploy-sb:${CICD_EXECUTION_SEQUENCE}
+          image: deploysb:${CICD_EXECUTION_SEQUENCE}
+          imagePullPolicy: Always
           ports:
           - containerPort: 80 
