@@ -4,7 +4,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: deploy-SBteste:${CICD_EXECUTION_SEQUENCE}
+      tag: cezarfw/deploysb:${CICD_EXECUTION_SEQUENCE}
 - name: deploy
   steps:
   - applyYamlConfig:
