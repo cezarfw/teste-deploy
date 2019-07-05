@@ -5,6 +5,7 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: cezarfw/deploysb:${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
 - name: deploy
   steps:
   - applyYamlConfig:
