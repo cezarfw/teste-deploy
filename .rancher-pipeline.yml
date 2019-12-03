@@ -5,6 +5,7 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: deploy-sb:${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
       registry: 546058309270.dkr.ecr.us-east-1.amazonaws.com
 - name: deploy
   steps:
