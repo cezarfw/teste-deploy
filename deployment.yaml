@@ -2,7 +2,7 @@ apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: site
-  namespace: site
+  namespace: fiserv-prod
   labels: 
     workload.user.cattle.io/workloadselector: deployment-site-site
 spec:
