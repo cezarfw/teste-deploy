@@ -5,7 +5,8 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: deploy-sb:${CICD_EXECUTION_SEQUENCE}
-      registry: 546058309270.dkr.ecr.us-east-1.amazonaws.com
+      pushRemote: true
+      registry: 546058309270.dkr.ecr.us-east-1.amazonaws.com/deploy-sb
 - name: deploy
   steps:
   - applyYamlConfig:
