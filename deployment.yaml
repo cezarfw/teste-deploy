@@ -1,20 +1,20 @@
-apiVersion: apps/v1beta2
+apiVersion: v1
 kind: Deployment
 metadata:
   name: site
   namespace: fiserv-prod
   labels: 
-    workload.user.cattle.io/workloadselector: deployment-site-site
+    workload.user.cattle.io/workloadselector: deployment-fiserv-prod-site
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      workload.user.cattle.io/workloadselector: deployment-site-site
+      workload.user.cattle.io/workloadselector: deployment-fiserv-prod-site
   template:
     metadata:
       labels:
         app: site
-        workload.user.cattle.io/workloadselector: deployment-site-site
+        workload.user.cattle.io/workloadselector: deployment-fiserv-prod-site
     spec:
       imagePullSecrets:
       - name: pipeline-docker-registry
